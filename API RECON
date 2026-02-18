@@ -160,3 +160,61 @@ Recon = odkrywanie endpointów + tokenów + kluczy + danych
 **Cel**
 znaleźć entry point do API
 
+
+TEST:
+Which of these headers is the best indicator of a web API?
+Content-encoding: gzip
+Content-Type: text/javascript
+Cross-Origin-Resource-Policy: cross-origin
+Content-Type: application/json +
+
+Which tool is best for exploring old versions of API documentation?
+GitHub
+Kiterunner
+Shodan
+The Wayback Machine +
+
+Which Amass command will actively scan a target?
+$amass intel -d example.com
+$amass -h
+$amass viz -maltego
+$amass enum -active -brute -w /usr/share/wordlists/API_superlist -d example.com -dir [directory name]  +
+
+What attributes are associated with Partner APIs?
+Only exposed internally and API is likely unrestricted
+Documentation is public and access to the API is likely restricted
+Documentation may not be public and access to the API is likely restricted +
+
+Which of the following attributes are associated with Private APIs?
+They are intended for use by partners
+Usually requires JSON Web Tokens for authorization
+Out of all the API types, documentation could be the most difficult to find +
+
+Which of the following tools is the worst for passively detecting APIs?
+Nmap +
+Google
+GitHub
+Shodan
+
+Which of the following tools would be best for actively detecting APIs?
+Wireshark
+GitHub
+Shodan
+Kiterunner +
+
+How can DevTools help analyze APIs?
+Directory brute force
+By attacking the API through HTML
+The network module can reveal API endpoints +
+
+What information about APIs can be discovered through passive reconnaissance techniques?
+API Documentation
+Exposed API keys
+Usernames
+All above +
+
+Which of the following tools cannot help discover endpoints without a specification file?
+Kiterunner
+Netcat +
+Gobuster
+Burp Suite
