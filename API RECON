@@ -5,185 +5,158 @@
 ## 1. PASSIVE
 
 ### Wyszukiwarka
-```
 target api
-```
-```
+
 inurl:"/wp-json/wp/v2/users" site:target.com
 intitle:json site:target.com
-```
+
 
 ---
 
 ### Google Dorking
 
 **WordPress users API**
-```
 inurl:"/wp-json/wp/v2/users"
-```
+
 
 **Pliki z API keys**
-```
 intitle:"index.of" intext:"api.txt"
-```
+
 
 **Katalogi API**
-```
 inurl:"/api/v1" intext:"index of /"
-```
+
 
 **XenAPI SQLi**
-```
 ext:php inurl:"api.php?action="
-```
+
 
 **Eksponowane klucze API**
-```
 intitle:"index of" api_key OR "api key" OR apiKey -pool
-```
+
 
 ---
 
 ### GitDorking
-```
 filename:swagger.json
 extension:.json
-```
+
 
 ---
 
 ### Shodan
 
 **Hostname**
-```
 hostname:"targetname.com"
-```
+
 
 **Filtry**
-```
 "content-type: application/json"
 "content-type: application/xml"
 "200 OK"
 "wp-json"
-```
+
 
 ---
 
 ## 2. ACTIVE
 
 ### Nmap
-```
 nmap -sC -sV target
 nmap -p- 127.0.0.1
-```
-```
+
 nmap -sC -sV [target] -oA nameofoutput
-```
-```
+
 nmap -p- [target] -oA allportscan
-```
+
 
 ---
 
 ### Amass — konfiguracja
-```
 amass enum -list
-```
-```
+
 sudo curl https://raw.githubusercontent.com/OWASP/Amass/master/examples/config.ini > ~/.config/amass/config.ini
-```
+
 
 ---
 
 ### Amass — rekonesans
-```
 amass enum -active -d target.com | grep api
-```
-```
+
 amass intel -addr [IP]
-```
-```
+
 amass intel -d [domain] -whois
-```
-```
+
 amass enum -passive -d [domain]
-```
-```
+
 amass enum -active -d [domain]
-```
-```
+
 amass enum -active -brute -w /usr/share/wordlists/API_superlist -d [domain] -dir [outputdir]
-```
+
 
 ---
 
-## NARZĘDZIA
+## SKRÓCONA NOTATKA — NARZĘDZIA
 
-### Gobuster
-```
+---
+
+### Gobuster — brute katalogów
 gobuster dir -u target.com:8000 -w /home/hapihacker/api/wordlists/common_apis_160
-```
+
 
 ---
 
-### Kiterunner
-```
+### Kiterunner — discovery endpointów
 kr scan http://127.0.0.1 -w ~/api/wordlists/data/kiterunner/routes-large.kite
-```
-```
-kr brute <target> -w ~/api/wordlists/data/automated/wordlist.txt
-```
 
-**Replay**
-```
+kr brute <target> -w ~/api/wordlists/data/automated/wordlist.txt
+
+
+---
+
+### Kiterunner — replay request
 kr kb replay "REQUEST" -w ~/api/wordlists/data/kiterunner/routes-large.kite
-```
+
 
 ---
 
 ### Format listy targetów
-```
 test.com
 test.com:443
 http://test.com
 http://test.com:8888
 http://test.com/api
-```
+
 
 ---
 
-## DevTools Recon
+## DevTools — szybki recon API
 
-**Start**
-```
+**Kroki**
 F12 → Network → refresh
-```
+
 
 **Filtrowanie**
-```
 API
 v1
 graphql
-```
 
-**Edycja requestu**
-```
+
+**Analiza requestów**
 Right click → Edit and Resend
-```
 
-**Import do Postman**
-```
+
+**Export do Postman**
 Copy as cURL → Postman → Import → Raw text
-```
+
 
 ---
 
 ## ZASADA RECON
-```
+
 Recon = odkrywanie endpointów + tokenów + kluczy + danych
-```
+
 
 **Cel**
-```
 znaleźć entry point do API
-```
+
