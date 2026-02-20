@@ -24,5 +24,17 @@ sudo docker-compose ps
 
 http://127.0.0.1:8000
 
-public workspacer Postman
-https://www.postman.com/roottusk/workspace/vapi/
+
+
+postman
+
+download
+https://www.postman.com/downloads/
+
+extract
+tar -xzf Postman*.tar.gz
+
+cd /home/kali/Downloads/Postman
+chmod +x Postman
+./Postman
+
