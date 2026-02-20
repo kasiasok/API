@@ -11,23 +11,27 @@ intitle:json site:target.com
 
 ### Google Dorking
 
-**WordPress users API**
+	
+Finds all publicly available WordPress API user directories
 inurl:"/wp-json/wp/v2/users"
 
 
-**Pliki z API keys**
+Finds publicly available API key files.
 intitle:"index.of" intext:"api.txt"
 
 
-**Katalogi API**
+	
+Finds potentially interesting API directories.
 inurl:"/api/v1" intext:"index of /"
 
-
-**XenAPI SQLi**
+np.
+inurl:"/api/v1" site:microsoft.com
+intitle:"api" site:"coinbase.com" 
+	
+Finds all sites with a XenAPI SQL injection vulnerability. (This query was posted in 2016; four years later, there are currently 141,000 results.)
 ext:php inurl:"api.php?action="
 
-
-**Eksponowane klucze API**
+This is one of my favorite queries. It lists potentially exposed API keys.
 intitle:"index of" api_key OR "api key" OR apiKey -pool
 
 
