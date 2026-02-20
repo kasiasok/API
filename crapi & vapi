@@ -1,0 +1,28 @@
+crapi 
+
+mkdir ~/lab 
+cd ~/lab
+sudo apt install docker.io docker-compose
+sudo curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+sudo docker-compose pull
+sudo docker-compose -f docker-compose.yml --compatibility up -d
+
+
+127.0.0.1:8888/login
+127.0.0.1:8025
+
+
+
+
+vapi
+
+cd ~/lab
+sudo git clone https://github.com/roottusk/vapi.git
+cd vapi
+sudo docker-compose up -d
+sudo docker-compose ps
+
+http://127.0.0.1:8000
+
+public workspacer Postman
+https://www.postman.com/roottusk/workspace/vapi/
