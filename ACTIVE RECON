@@ -1,6 +1,7 @@
 ## 2. ACTIVE
 
 ### Nmap
+(-oX for XML, -oN for Nmap, -oG for greppable, or -oA for all three)
 nmap -sC -sV target
 nmap -p- 127.0.0.1
 
@@ -11,15 +12,23 @@ nmap -p 8025 -sV
 ---
 
 ### Amass — konfiguracja
+
+Wyświetlenia listy wszystkich źródeł danych (data sources), z których Amass może korzystać podczas enumeracji.
 amass enum -list
 
 sudo curl https://raw.githubusercontent.com/OWASP/Amass/master/examples/config.ini > ~/.config/amass/config.ini
+ls ~/.config/amass/
 
+
+ Simply visit https://censys.io/register and register for a free account for process of adding API Keys.
 
 ---
 
-### Amass — rekonesans pasywny lub aktywny / narzędzie do rekonesansu domen i infrastruktury internetowej
-amass enum -active -d target.com | grep api
+### OWASP Amass Project — rekonesans pasywny lub aktywny / narzędzie do rekonesansu domen i infrastruktury internetowej
+Zbiera dane z: DNS, certyfikatów SSL, wyszukiwarek, baz pasywnego DNS, API OSINT, brute force słownikowego, WHOIS, ASN
+
+
+amass enum -active -d microsoft.com | grep api
 
 amass intel -addr [IP]
 
@@ -34,12 +43,31 @@ amass enum -active -brute -w /usr/share/wordlists/API_superlist -d [domain] -dir
 
 ---
 
-## SKRÓCONA NOTATKA — NARZĘDZIA
+### Gobuster — brute katalogów
+gobuster dir -u target.com:8000 -w /home/hapihacker/api/wordlists/common_apis_160
+gobuster dir -u target.com:8000/community -w /home/hapihacker/api/wordlists/common_apis_160
+
+gobuster dir -u http://127.0.0.1:8888 -w /usr/share/wordlists/dirbuster/d
+irectory-list-2.3-medium.txt
+
 
 ---
 
-### Gobuster — brute katalogów
-gobuster dir -u target.com:8000 -w /home/hapihacker/api/wordlists/common_apis_160
+## DevTools — szybki recon API (crapi /shop)
+
+**Kroki**
+F12 → Network → URL column ON -> refresh
+
+
+**Filtrowanie**
+API
+v1
+graphql
+
+
+
+**Export do Postman**
+Copy as cURL → Postman → Plik -> Import → Raw text
 
 
 ---
@@ -66,27 +94,6 @@ http://test.com:8888
 http://test.com/api
 
 
----
-
-## DevTools — szybki recon API
-
-**Kroki**
-F12 → Network → refresh
-
-
-**Filtrowanie**
-API
-v1
-graphql
-
-
-**Analiza requestów**
-Right click → Edit and Resend
-
-
-**Export do Postman**
-Copy as cURL → Postman → Import → Raw text
-
 
 ---
 
@@ -97,6 +104,18 @@ Recon = odkrywanie endpointów + tokenów + kluczy + danych
 
 **Cel**
 znaleźć entry point do API
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 TEST:
