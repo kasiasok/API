@@ -1,0 +1,60 @@
+# API RECON — NOTATKA
+
+---
+
+## 1. PASSIVE
+
+### Wyszukiwarka
+target api
+
+inurl:"/wp-json/wp/v2/users" site:target.com
+intitle:json site:target.com
+
+
+---
+
+### Google Dorking
+
+**WordPress users API**
+inurl:"/wp-json/wp/v2/users"
+
+
+**Pliki z API keys**
+intitle:"index.of" intext:"api.txt"
+
+
+**Katalogi API**
+inurl:"/api/v1" intext:"index of /"
+
+
+**XenAPI SQLi**
+ext:php inurl:"api.php?action="
+
+
+**Eksponowane klucze API**
+intitle:"index of" api_key OR "api key" OR apiKey -pool
+
+
+---
+
+### GitDorking
+filename:swagger.json
+extension:.json
+
+
+---
+
+### Shodan
+
+**Hostname**
+hostname:"targetname.com"
+
+
+**Filtry**
+"content-type: application/json"
+"content-type: application/xml"
+"200 OK"
+"wp-json"
+
+
+---
