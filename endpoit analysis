@@ -1,2 +1,9 @@
 Reverse Engeneering of API
 
+zbudowac własną kolekcję API requests
+
+./Postman
+new collection > capture request > enable proxy > port 5555 
+foxy proxy set
+
+
