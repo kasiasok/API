@@ -10,7 +10,7 @@ sudo docker-compose -f docker-compose.yml --compatibility up -d
 
 127.0.0.1:8888/login
 127.0.0.1:8025
-
+crapi.apisec.ai/login
 
 
 
@@ -28,7 +28,7 @@ http://127.0.0.1:8000
 
 postman
 
-download
+download desktop
 https://www.postman.com/downloads/
 
 extract
